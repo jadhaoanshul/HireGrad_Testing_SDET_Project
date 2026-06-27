@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationBellPage extends BasePage {
+public class StudentNotificationBellPage extends BasePage {
 
     private WebDriver driver;
 
@@ -28,7 +28,7 @@ public class NotificationBellPage extends BasePage {
     @FindBy(xpath = "//div[@id='student-layout-notifications-panel']//p[normalize-space()=\"You're all caught up.\"]")
     private List<WebElement> emptyNotificationMessages;
 
-    public NotificationBellPage(WebDriver driver) {
+    public StudentNotificationBellPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
