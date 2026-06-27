@@ -1,11 +1,10 @@
-package elementaryRepositary;
+package pages;
 
-import base.basePage;
+import base.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-public class HomePage extends basePage {
+public class HomePage extends BasePage {
 
     WebDriver driver;
 

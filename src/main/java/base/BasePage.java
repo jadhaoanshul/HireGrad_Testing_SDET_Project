@@ -3,10 +3,10 @@ package base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class basePage {
+public class BasePage {
     WebDriver driver;
 
-    public basePage(WebDriver driver){
+    public BasePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

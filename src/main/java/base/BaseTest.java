@@ -11,9 +11,6 @@ import util.PropertyFile;
 import java.time.Duration;
 
 public class BaseTest {
-    public static void main(String[] args) {
-        System.out.println("Hello world");
-    }
     WebDriver driver;
 
     @Parameters("browser")
