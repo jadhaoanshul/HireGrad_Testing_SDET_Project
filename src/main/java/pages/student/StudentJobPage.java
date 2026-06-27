@@ -65,7 +65,7 @@ public class StudentJobPage extends BasePage {
     }
 
     public boolean hasJobListings() {
-        return jobCards.size() > 0;
+        return !jobCards.isEmpty();
     }
 
     public int getJobCardsCount() {
@@ -137,7 +137,7 @@ public class StudentJobPage extends BasePage {
     }
 
     public boolean isNoJobsMessageDisplayed() {
-        return noJobsMessage.size() > 0 && noJobsMessage.get(0).isDisplayed();
+        return !noJobsMessage.isEmpty() && noJobsMessage.get(0).isDisplayed();
     }
 
     public String getNoJobsMessage() {

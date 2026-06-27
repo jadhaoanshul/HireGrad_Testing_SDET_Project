@@ -42,7 +42,7 @@ public class StudentNotificationBellPage extends BasePage {
     }
 
     public boolean hasNotifications() {
-        return notificationItems.size() > 0;
+        return !notificationItems.isEmpty();
     }
 
     public int getNotificationCount() {
@@ -50,11 +50,11 @@ public class StudentNotificationBellPage extends BasePage {
     }
 
     public boolean isUnreadIndicatorDisplayed() {
-        return unreadIndicators.size() > 0 && unreadIndicators.get(0).isDisplayed();
+        return !unreadIndicators.isEmpty() && unreadIndicators.get(0).isDisplayed();
     }
 
     public boolean isEmptyNotificationMessageDisplayed() {
-        return emptyNotificationMessages.size() > 0
+        return !emptyNotificationMessages.isEmpty()
                 && emptyNotificationMessages.get(0).isDisplayed();
     }
 
@@ -105,7 +105,7 @@ public class StudentNotificationBellPage extends BasePage {
                 By.id("student-layout-notification-" + notificationName)
         );
 
-        return notifications.size() > 0 && notifications.get(0).isDisplayed();
+        return !notifications.isEmpty() && notifications.get(0).isDisplayed();
     }
 
     public void closeNotificationPanel() {
