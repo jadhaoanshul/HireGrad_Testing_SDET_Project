@@ -4,11 +4,15 @@ import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import util.ActionUtil;
 
 public class LoginPage extends BasePage {
 
+    ActionUtil actionUtil;
+
     public LoginPage(WebDriver driver){
         super(driver);
+        actionUtil = new ActionUtil(driver);
     }
 
     @FindBy(id="login-role-student-tab")
@@ -26,41 +30,17 @@ public class LoginPage extends BasePage {
     @FindBy(id="login-submit-btn")
     WebElement signinBtn;
 
-    public void selectPlacementCell(){
-        placementcellBtn.click();
-    }
-
-    public void selectStudent(){
-        studentbtn.click();
-    }
-
-    public void enterUsername(String userName){
-        username.clear();
-        username.sendKeys(userName);
-    }
-
-    public void enterPassword(String pass){
-        password.clear();
-        password.sendKeys(pass);
-    }
-
-    public void clickOnSigninBtn(){
-        signinBtn.click();
-    }
-
     public void loginAsStudent(String user,String pass){
-        selectStudent();
-        enterUsername(user);
-        enterPassword(pass);
-        clickOnSigninBtn();
-
+        actionUtil.click(studentbtn);
+        actionUtil.enterText(username,user);
+        actionUtil.enterText(password,pass);
+        actionUtil.click(signinBtn);
     }
     public void loginAsPlacementCell(String user,String pass){
-        selectPlacementCell();
-        enterUsername(user);
-        enterPassword(pass);
-        clickOnSigninBtn();
-
+        actionUtil.click(placementcellBtn);
+        actionUtil.enterText(username,user);
+        actionUtil.enterText(password,pass);
+        actionUtil.click(signinBtn);
     }
 
 

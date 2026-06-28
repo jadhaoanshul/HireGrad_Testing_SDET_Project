@@ -9,11 +9,6 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-/***
- *
- * @author Sumanth Keshav
- *
- */
 public class ExcelUtil implements FrameworkConstants{
 
     public File abspath=new File(EXCEL_PATH);

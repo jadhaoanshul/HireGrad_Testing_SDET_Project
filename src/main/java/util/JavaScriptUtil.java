@@ -12,10 +12,11 @@ import org.openqa.selenium.WebElement;
 public class JavaScriptUtil {
 
     public WebDriver driver;
-    public JavascriptExecutor javaScript = (JavascriptExecutor) driver;
+    public JavascriptExecutor javaScript;
 
     public JavaScriptUtil(WebDriver driver) {
-        driver=this.driver;
+        this.driver = driver;
+        this.javaScript = (JavascriptExecutor) driver;
     }
 
     /**
@@ -36,8 +37,8 @@ public class JavaScriptUtil {
 
     /**
      * This method is used to perform scrolling action in X and Y direction using JavascriptExecutor
-     * @param x pass the X pixels value (distance in X direction)
-     * @param y pass the Y pixels value (distance in Y direction)
+     * @param X pass the X pixels value (distance in X direction)
+     * @param Y pass the Y pixels value (distance in Y direction)
      */
     public void jsScrollBy(int X,int Y) {
         javaScript.executeScript("window.scrollBy("+X+","+Y+")");
