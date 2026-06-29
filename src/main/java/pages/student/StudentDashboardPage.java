@@ -72,7 +72,10 @@ public class StudentDashboardPage {
                 applicationSubmittedCount,
                 inReviewCount,
                 selectedCount,
-                eligibleRoleCount));
+                eligibleRoleCount,
+                browseJobs,
+                viewTracker,
+                completeProfile));
     }
 
     public boolean areRecentDetailsDisplayed() {
