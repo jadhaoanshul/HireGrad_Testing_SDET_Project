@@ -5,33 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07e2c584-841b-4797-ad59-8deb0efc66dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC15_verifyAdminDashboardSidebarNavigationLinks_2026-06-29T15-12-48.984613200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC15_verifyAdminDashboardSidebarNavigationLinks_2026-06-29T15-21-04.416579200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC17_verifyAdminJobPostingUIComponentsAreVisible_2026-06-29T15-14-01.033526100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC17_verifyAdminJobPostingUIComponentsAreVisible_2026-06-29T15-19-15.426040300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC18_verifyInvalidJobDetailsAreRejectedUsingECP_2026-06-29T15-14-12.692824600.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC18_verifyInvalidJobDetailsAreRejectedUsingECP_2026-06-29T15-19-26.778311.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC19_verifyMandatoryFieldValidationMessagesForBlankForm_2026-06-29T15-14-33.756054600.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC19_verifyMandatoryFieldValidationMessagesForBlankForm_2026-06-29T15-19-48.746267500.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA_2026-06-29T15-14-44.933069100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screenshots/TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA_2026-06-29T15-19-59.963168200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/admin/AdminDashboardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/admin/AdminJobPostingTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-output/ExtentReports/HireGradReport.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-output/logs/automation.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/src/main/java/base/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/admin/AdminDashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/admin/AdminDashboardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/admin/JobPostingManagementPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/admin/JobPostingManagementPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ExtentReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ExtentReportManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/AdminBaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/AdminBaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/listeners/TestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/listeners/TestListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/ActionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ActionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/applicationmanagement/TC_022_ToSearchApplicantsWithValidName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/applicationmanagement/TC_022_ToSearchApplicantsWithValidName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/ConfigProperty/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/ConfigProperty/config.properties" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/AdminBaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/AdminBaseTest.java" afterDir="false" />
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +32,8 @@
     <urls />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
+    &quot;associatedIndex&quot;: 8
+    }</component>
   <component name="ProjectId" id="3FjPwp1iORSVfvlHZvayYxt75pt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -65,12 +44,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-<<<<<<< Updated upstream
-    "TestNG.AdminDashboardTest.executor": "Run",
-    "TestNG.AdminJobPostingTest.executor": "Run",
-=======
-    "TestNG.LoginTest.executor": "Run",
->>>>>>> Stashed changes
+    "TestNG.TC_022_ToSearchApplicantsWithValidName.executor": "Run",
     "TestNG.TC_022_ToVerifyAdminCanSearchApplicantsWithValidName (1).executor": "Run",
     "TestNG.TC_022_ToVerifyAdminCanSearchApplicantsWithValidName.executor": "Run",
     "git-widget-placeholder": "main",
@@ -80,10 +54,29 @@
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\2492154\HireGrad_Testing_SDET_Project\src\test\resources" />
-    </key>
+  <component name="RunManager">
+    <configuration name="TC_022_ToSearchApplicantsWithValidName" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HybridtestFramework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="applicationmanagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="applicationmanagement" />
+      <option name="MAIN_CLASS_NAME" value="applicationmanagement.TC_022_ToSearchApplicantsWithValidName" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.TC_022_ToSearchApplicantsWithValidName" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
