@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e2c584-841b-4797-ad59-8deb0efc66dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/admin/ApplicationManagementPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/admin/ReportAnalysisPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/applicationmanagement/TC_022_ToSearchApplicantsWithValidName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/base/AdminBaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyFunctional Testing Reports - AirBNB (1).xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/MyFunctional Testing Reports - AirBNB (1).xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ActionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ActionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/BaseTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="07e2c584-841b-4797-ad59-8deb0efc66dc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
