@@ -3,6 +3,7 @@ package util;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionUtil {
 
@@ -19,6 +20,11 @@ public class ActionUtil {
     public void enterText(WebElement element, String value) {
         element.clear();
         element.sendKeys(value);
+    }
+
+    public void selectByVisibleText(WebElement element, String value) {
+        Select select = new Select(element);
+        select.selectByVisibleText(value);
     }
 
     public String getText(WebElement element) {

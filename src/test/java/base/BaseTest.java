@@ -17,6 +17,7 @@ public class BaseTest {
     public WebDriver driver;
     public static final Logger log = LogManager.getLogger(BaseTest.class);
 
+    @BeforeClass(alwaysRun = true)
     @Parameters("browser")
     public void setup(@Optional("chrome") String browser) {
 
@@ -39,6 +40,7 @@ public class BaseTest {
 
     }
 
+    @AfterClass(alwaysRun = true)
     public void tearDown(){
         if(driver != null){
             driver.quit();
