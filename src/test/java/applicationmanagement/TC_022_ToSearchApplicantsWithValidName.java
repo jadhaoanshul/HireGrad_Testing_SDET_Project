@@ -12,5 +12,6 @@ public class TC_022_ToSearchApplicantsWithValidName extends AdminBaseTest {
         ApplicationManagementPage page = new ApplicationManagementPage(driver);
         page.searchApplicant("Bhanu");
         Thread.sleep(5000);
+
     }
 }
