@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.util.Date;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 
 public class ExcelUtil implements FrameworkConstants{
 
@@ -136,10 +139,17 @@ public class ExcelUtil implements FrameworkConstants{
         int phyCellCount = workbook.getSheet(sheetName).getRow(0).getPhysicalNumberOfCells();
 
         String[][] sarr = new String[phyRowCount][phyCellCount];
-
+        DataFormatter data= new DataFormatter();
         for(int i=0;i<phyRowCount;i++) {
             for(int j=0;j<phyCellCount;j++) {
-                sarr[i][j]=workbook.getSheet(sheetName).getRow(i).getCell(j).toString();
+                Cell cell = workbook.getSheet(sheetName).getRow(i).getCell(j);
+                switch (cell.getCellType()) {
+                    case NUMERIC:
+                        sarr[i][j] = data.formatCellValue(cell);
+                        break;
+                    default:
+                        sarr[i][j] = cell.toString();
+                }
             }
         }
         return sarr;

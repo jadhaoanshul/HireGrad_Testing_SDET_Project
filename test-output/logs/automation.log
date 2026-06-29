@@ -1,86 +1,13 @@
-2026-06-29 16:16:55 [INFO ] TestListener - ========== TEST SUITE STARTED: HireGrad Admin Suite ==========
-2026-06-29 16:16:55 [INFO ] ExtentReportManager - ExtentReports instance created
-2026-06-29 16:16:55 [INFO ] BaseTest - Setting up browser: chrome
-2026-06-29 16:17:00 [INFO ] BaseTest - Chrome Browser Launched
-2026-06-29 16:17:00 [INFO ] BaseTest - Navigated to URL: https://beamish-crumble-380780.netlify.app/
-2026-06-29 16:17:01 [INFO ] BasePage - WebDriver Initialized for: LoginPage
-2026-06-29 16:17:01 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 16:17:04 [INFO ] BaseTest - Admin logged in successfully
-2026-06-29 16:17:05 [INFO ] TestListener - ---------- STARTED: searchVerify ----------
-2026-06-29 16:17:05 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:05 [INFO ] BaseTest - Navigate to Application Management page successfully
-2026-06-29 16:17:05 [INFO ] BasePage - WebDriver Initialized for: ApplicationManagementPage
-2026-06-29 16:17:05 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 16:17:16 [INFO ] TestListener - PASSED: searchVerify
-2026-06-29 16:17:22 [INFO ] BaseTest - Browser closed successfully
-2026-06-29 16:17:22 [INFO ] BaseTest - Setting up browser: chrome
-2026-06-29 16:17:24 [INFO ] BaseTest - Chrome Browser Launched
-2026-06-29 16:17:24 [INFO ] BaseTest - Navigated to URL: https://beamish-crumble-380780.netlify.app/
-2026-06-29 16:17:24 [INFO ] BasePage - WebDriver Initialized for: LoginPage
-2026-06-29 16:17:24 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 16:17:28 [INFO ] BaseTest - Admin logged in successfully
-2026-06-29 16:17:28 [INFO ] BaseTest - Navigate to Admin Dashboard page successfully
-2026-06-29 16:17:28 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:28 [INFO ] TestListener - ---------- STARTED: TC14_verifyAdminDashboardUIComponentsAreVisible ----------
-2026-06-29 16:17:28 [INFO ] TestListener - PASSED: TC14_verifyAdminDashboardUIComponentsAreVisible
-2026-06-29 16:17:28 [INFO ] BaseTest - Navigate to Admin Dashboard page successfully
-2026-06-29 16:17:28 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:28 [INFO ] TestListener - ---------- STARTED: TC16_verifyDashboardDisplaysContentOrLoadingOrErrorState ----------
-2026-06-29 16:17:29 [INFO ] TestListener - PASSED: TC16_verifyDashboardDisplaysContentOrLoadingOrErrorState
-2026-06-29 16:17:29 [INFO ] BaseTest - Navigate to Admin Dashboard page successfully
-2026-06-29 16:17:29 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:29 [INFO ] TestListener - ---------- STARTED: TC15_verifyAdminDashboardSidebarNavigationLinks ----------
-2026-06-29 16:17:29 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:29 [INFO ] BaseTest - Navigate to Admin Dashboard page successfully
-2026-06-29 16:17:29 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:30 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:30 [INFO ] BaseTest - Navigate to Admin Dashboard page successfully
-2026-06-29 16:17:30 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:31 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:31 [INFO ] BaseTest - Navigate to Admin Dashboard page successfully
-2026-06-29 16:17:31 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:17:52 [ERROR] TestListener - FAILED: TC15_verifyAdminDashboardSidebarNavigationLinks | Reason: Expected condition failed: waiting for element to be clickable, but the element was not found: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='admin-layout-profile-btn']"}.
-(tried for 15 seconds with 500 milliseconds interval)
-Build info: version: '4.43.0', revision: 'dd0f534'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\2492262\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56824}, goog:processID: 19264, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56824/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 8e2a82596f4b454221ce9a1a2d8c59f6
-2026-06-29 16:17:52 [INFO ] GenericScreenshots - Screenshot saved: C:\Users\2492262\OneDrive - Cognizant\Desktop\HireGrad-SDET-final\.\Screenshots\TC15_verifyAdminDashboardSidebarNavigationLinks_2026-06-29T16-17-52.147234300.png
-2026-06-29 16:17:55 [INFO ] BaseTest - Browser closed successfully
-2026-06-29 16:17:55 [INFO ] BaseTest - Setting up browser: chrome
-2026-06-29 16:17:57 [INFO ] BaseTest - Chrome Browser Launched
-2026-06-29 16:17:59 [INFO ] BaseTest - Navigated to URL: https://beamish-crumble-380780.netlify.app/
-2026-06-29 16:17:59 [INFO ] BasePage - WebDriver Initialized for: LoginPage
-2026-06-29 16:17:59 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 16:18:02 [INFO ] BaseTest - Admin logged in successfully
-2026-06-29 16:18:02 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
-2026-06-29 16:18:02 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:02 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:02 [INFO ] TestListener - ---------- STARTED: TC17_verifyAdminJobPostingUIComponentsAreVisible ----------
-2026-06-29 16:18:03 [INFO ] TestListener - PASSED: TC17_verifyAdminJobPostingUIComponentsAreVisible
-2026-06-29 16:18:03 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:03 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:03 [INFO ] TestListener - ---------- STARTED: TC18_verifyInvalidJobDetailsAreRejectedUsingECP ----------
-2026-06-29 16:18:08 [INFO ] TestListener - PASSED: TC18_verifyInvalidJobDetailsAreRejectedUsingECP
-2026-06-29 16:18:08 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:08 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:08 [INFO ] TestListener - ---------- STARTED: TC19_verifyMandatoryFieldValidationMessagesForBlankForm ----------
-2026-06-29 16:18:08 [INFO ] TestListener - PASSED: TC19_verifyMandatoryFieldValidationMessagesForBlankForm
-2026-06-29 16:18:08 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:08 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:08 [INFO ] TestListener - ---------- STARTED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA ----------
-2026-06-29 16:18:08 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:08 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:13 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:13 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:17 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:17 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:22 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:22 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:27 [INFO ] BaseTest - Navigate to Job Posting page successfully
-2026-06-29 16:18:27 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
-2026-06-29 16:18:31 [INFO ] TestListener - PASSED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA
-2026-06-29 16:18:33 [INFO ] BaseTest - Browser closed successfully
-2026-06-29 16:18:33 [INFO ] TestListener - ========== TEST SUITE FINISHED: HireGrad Admin Suite ==========
-2026-06-29 16:18:34 [INFO ] TestListener - ExtentReport written successfully
+2026-06-29 18:21:42 [INFO ] BaseTest - Setting up browser: chrome
+2026-06-29 18:21:44 [INFO ] BaseTest - Chrome Browser Launched
+2026-06-29 18:21:45 [INFO ] BaseTest - Navigated to URL: https://beamish-crumble-380780.netlify.app/
+2026-06-29 18:21:46 [INFO ] BasePage - WebDriver Initialized for: LoginPage
+2026-06-29 18:21:46 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
+2026-06-29 18:21:57 [INFO ] BaseTest - Validation Failed
+2026-06-29 18:21:58 [INFO ] BasePage - WebDriver Initialized for: LoginPage
+2026-06-29 18:21:58 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
+2026-06-29 18:22:01 [INFO ] BasePage - WebDriver Initialized for: LoginPage
+2026-06-29 18:22:01 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
+2026-06-29 18:22:03 [INFO ] BasePage - WebDriver Initialized for: LoginPage
+2026-06-29 18:22:03 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
+2026-06-29 18:22:08 [INFO ] BaseTest - Browser closed successfully
