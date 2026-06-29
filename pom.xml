@@ -35,6 +35,12 @@
       <version>5.5.1</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-compress</artifactId>
+      <version>1.28.0</version>
+      <scope>compile</scope>
+    </dependency>
     <!--    Add extent report dependency -->
     <!-- Source: https://mvnrepository.com/artifact/com.aventstack/extentreports -->
     <dependency>

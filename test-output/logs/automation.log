@@ -1,13 +1,49 @@
-2026-06-29 18:21:42 [INFO ] BaseTest - Setting up browser: chrome
-2026-06-29 18:21:44 [INFO ] BaseTest - Chrome Browser Launched
-2026-06-29 18:21:45 [INFO ] BaseTest - Navigated to URL: https://beamish-crumble-380780.netlify.app/
-2026-06-29 18:21:46 [INFO ] BasePage - WebDriver Initialized for: LoginPage
-2026-06-29 18:21:46 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 18:21:57 [INFO ] BaseTest - Validation Failed
-2026-06-29 18:21:58 [INFO ] BasePage - WebDriver Initialized for: LoginPage
-2026-06-29 18:21:58 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 18:22:01 [INFO ] BasePage - WebDriver Initialized for: LoginPage
-2026-06-29 18:22:01 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 18:22:03 [INFO ] BasePage - WebDriver Initialized for: LoginPage
-2026-06-29 18:22:03 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
-2026-06-29 18:22:08 [INFO ] BaseTest - Browser closed successfully
+2026-06-29 21:52:51 [INFO ] TestListener - ========== TEST SUITE STARTED: Default Suite ==========
+2026-06-29 21:52:51 [INFO ] ExtentReportManager - ExtentReports instance created
+2026-06-29 21:52:51 [INFO ] BaseTest - Setting up browser: chrome
+2026-06-29 21:52:55 [INFO ] BaseTest - Chrome Browser Launched
+2026-06-29 21:52:57 [INFO ] BaseTest - Navigated to URL: https://beamish-crumble-380780.netlify.app/
+2026-06-29 21:52:57 [INFO ] BasePage - WebDriver Initialized for: LoginPage
+2026-06-29 21:52:57 [INFO ] BasePage - WebDriver Initialized for: ActionUtil
+2026-06-29 21:53:00 [INFO ] BaseTest - Admin logged in successfully
+2026-06-29 21:53:00 [INFO ] BasePage - WebDriver Initialized for: AdminDashboardPage
+2026-06-29 21:53:01 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:53:01 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:53:01 [INFO ] TestListener - ---------- STARTED: TC17_verifyAdminJobPostingUIComponentsAreVisible ----------
+2026-06-29 21:53:02 [INFO ] TestListener - PASSED: TC17_verifyAdminJobPostingUIComponentsAreVisible
+2026-06-29 21:53:03 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:53:03 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:53:03 [INFO ] TestListener - ---------- STARTED: TC18_verifyInvalidJobDetailsAreRejectedUsingECP ----------
+2026-06-29 21:54:29 [ERROR] TestListener - FAILED: TC18_verifyInvalidJobDetailsAreRejectedUsingECP | Reason: The following asserts failed:
+	Validation error should display for numeric-only company name expected [true] but found [false],
+	Validation error should display for numeric-only job title expected [true] but found [false],
+	Validation error should display for numeric-only location expected [true] but found [false],
+	Validation error should display for numeric-only required skill expected [true] but found [false]
+2026-06-29 21:54:29 [INFO ] GenericScreenshots - Screenshot saved: C:\Users\2492151\OneDrive - Cognizant\Documents\AnshulWork\HybridtestFramework\.\Screenshots\TC18_verifyInvalidJobDetailsAreRejectedUsingECP_2026-06-29T21-54-29.701748800.png
+2026-06-29 21:54:29 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:54:29 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:54:30 [INFO ] TestListener - ---------- STARTED: TC19_verifyMandatoryFieldValidationMessagesForBlankForm ----------
+2026-06-29 21:54:30 [INFO ] TestListener - PASSED: TC19_verifyMandatoryFieldValidationMessagesForBlankForm
+2026-06-29 21:54:30 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:54:30 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:54:30 [INFO ] TestListener - ---------- STARTED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA ----------
+2026-06-29 21:54:35 [INFO ] TestListener - PASSED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA
+2026-06-29 21:54:35 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:54:35 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:54:35 [INFO ] TestListener - ---------- STARTED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA ----------
+2026-06-29 21:54:40 [INFO ] TestListener - PASSED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA
+2026-06-29 21:54:40 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:54:40 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:54:40 [INFO ] TestListener - ---------- STARTED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA ----------
+2026-06-29 21:54:45 [INFO ] TestListener - PASSED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA
+2026-06-29 21:54:45 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:54:45 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:54:45 [INFO ] TestListener - ---------- STARTED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA ----------
+2026-06-29 21:54:49 [INFO ] TestListener - PASSED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA
+2026-06-29 21:54:49 [INFO ] BaseTest - Navigate to Job Posting page successfully
+2026-06-29 21:54:49 [INFO ] BasePage - WebDriver Initialized for: JobPostingManagementPage
+2026-06-29 21:54:49 [INFO ] TestListener - ---------- STARTED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA ----------
+2026-06-29 21:54:54 [INFO ] TestListener - PASSED: TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA
+2026-06-29 21:54:57 [INFO ] BaseTest - Browser closed successfully
+2026-06-29 21:54:57 [INFO ] TestListener - ========== TEST SUITE FINISHED: Default Suite ==========
+2026-06-29 21:54:58 [INFO ] TestListener - ExtentReport written successfully

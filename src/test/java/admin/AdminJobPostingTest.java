@@ -3,18 +3,24 @@ package admin;
 import base.AdminBaseTest;
 import listeners.TestListener;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.admin.JobPostingManagementPage;
+import util.ExcelUtil;
+import util.FrameworkConstants;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 @Listeners(TestListener.class)
 public class AdminJobPostingTest extends AdminBaseTest {
 
     private JobPostingManagementPage jobPostingPage;
+    private static final String JOB_LISTING_SHEET = "JobListingData";
 
     @BeforeMethod(alwaysRun = true)
     public void openJobPostingPage() {
@@ -40,16 +46,10 @@ public class AdminJobPostingTest extends AdminBaseTest {
 
     @Test(
             priority = 2,
+            dataProvider = "invalidEcpJobListingData",
             description = "TS04_TC18_ECP: Verify invalid equivalence-class job details are rejected")
-    public void TC18_verifyInvalidJobDetailsAreRejectedUsingECP() {
-        jobPostingPage.enterCompanyName("1234");
-        jobPostingPage.enterJobTitle("124");
-        jobPostingPage.enterJobLocation("124");
-        jobPostingPage.enterCTC("600000");
-        jobPostingPage.enterMinimumCGPA("7");
-        jobPostingPage.addRequiredSkill("1234");
-        jobPostingPage.enterJobDescription("Automation test job description");
-        jobPostingPage.selectApplicationDeadline(LocalDate.now().plusDays(10).toString());
+    public void TC18_verifyInvalidJobDetailsAreRejectedUsingECP(String[] jobData) {
+        fillJobListingForm(jobData);
         jobPostingPage.clickPublishButton();
 
         SoftAssert softAssert = new SoftAssert();
@@ -107,45 +107,74 @@ public class AdminJobPostingTest extends AdminBaseTest {
 
     @Test(
             priority = 4,
+            dataProvider = "invalidBvaJobListingData",
             description = "TS04_TC20_BVA: Verify invalid CTC, CGPA and past deadline boundary values are rejected")
-    public void TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA() {
+    public void TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA(String[] jobData) {
         SoftAssert softAssert = new SoftAssert();
 
-        verifyInvalidBoundaryData("0", "7", LocalDate.now().plusDays(10).toString(), "Zero CTC should be rejected", softAssert);
-        verifyInvalidBoundaryData("-1", "7", LocalDate.now().plusDays(10).toString(), "Negative CTC should be rejected", softAssert);
-        verifyInvalidBoundaryData("600000", "-1", LocalDate.now().plusDays(10).toString(), "CGPA below 0 should be rejected", softAssert);
-        verifyInvalidBoundaryData("600000", "11", LocalDate.now().plusDays(10).toString(), "CGPA above 10 should be rejected", softAssert);
-        verifyInvalidBoundaryData("600000", "7", LocalDate.now().minusDays(1).toString(), "Past deadline should be rejected", softAssert);
-
-        softAssert.assertAll();
-    }
-
-    private void verifyInvalidBoundaryData(
-            String ctc,
-            String cgpa,
-            String deadline,
-            String assertionMessage,
-            SoftAssert softAssert) {
-
-        navigateToJobPostingPage();
-        jobPostingPage = new JobPostingManagementPage(driver);
-        Assert.assertTrue(jobPostingPage.isJobPostingPageLoaded(), "Job Posting page should be loaded before BVA input");
-
-        jobPostingPage.enterCompanyName("Cognizant");
-        jobPostingPage.enterJobTitle("Software Engineer");
-        jobPostingPage.enterJobLocation("Pune");
-        jobPostingPage.enterCTC(ctc);
-        jobPostingPage.enterMinimumCGPA(cgpa);
-        jobPostingPage.addRequiredSkill("Java");
-        jobPostingPage.enterJobDescription("Automation boundary validation job description");
-        jobPostingPage.selectApplicationDeadline(deadline);
+        fillJobListingForm(jobData);
         jobPostingPage.clickPublishButton();
 
         softAssert.assertFalse(
                 jobPostingPage.isRedirectedToApplicationManagementPage(),
-                assertionMessage);
+                jobData[11]);
         softAssert.assertTrue(
                 jobPostingPage.isStillOnJobPostingPage(),
-                assertionMessage + " and admin should stay on Job Posting page");
+                jobData[11] + " and admin should stay on Job Posting page");
+        softAssert.assertAll();
+    }
+
+    @DataProvider(name = "invalidEcpJobListingData")
+    public Object[][] invalidEcpJobListingData() {
+        return getJobListingDataByScenarioPrefix("InvalidECP");
+    }
+
+    @DataProvider(name = "invalidBvaJobListingData")
+    public Object[][] invalidBvaJobListingData() {
+        return getJobListingDataByScenarioPrefix("BVA_");
+    }
+
+    private Object[][] getJobListingDataByScenarioPrefix(String scenarioPrefix) {
+        String[][] allData = new ExcelUtil().getMultipleData(
+                FrameworkConstants.JOB_LISTING_DATA_PATH,
+                JOB_LISTING_SHEET);
+
+        return Arrays.stream(allData)
+                .filter(row -> row[0].startsWith(scenarioPrefix))
+                .map(row -> new Object[]{row})
+                .toArray(Object[][]::new);
+    }
+
+    private void fillJobListingForm(String[] jobData) {
+        jobPostingPage.enterCompanyName(jobData[1]);
+        jobPostingPage.enterJobTitle(jobData[2]);
+        jobPostingPage.enterJobLocation(jobData[3]);
+        jobPostingPage.enterCTC(jobData[4]);
+        jobPostingPage.selectEmploymentType(jobData[5]);
+        jobPostingPage.selectWorkMode(jobData[6]);
+        jobPostingPage.enterMinimumCGPA(jobData[7]);
+        jobPostingPage.addRequiredSkill(jobData[8]);
+        jobPostingPage.enterJobDescription(jobData[9]);
+        jobPostingPage.selectApplicationDeadline(formatDeadlineForDateTimeInput(jobData[10]));
+    }
+
+    private String formatDeadlineForDateTimeInput(String deadlineFromExcel) {
+        String deadline = deadlineFromExcel.trim().replaceAll("\\s+", " ");
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+        for (String pattern : new String[]{
+                "dd-MM-yyyy HH:mm",
+                "d-M-yyyy H:mm",
+                "yyyy-MM-dd'T'HH:mm",
+                "yyyy-MM-dd HH:mm"}) {
+            try {
+                DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern(pattern);
+                return LocalDateTime.parse(deadline, inputFormatter).format(outputFormatter);
+            } catch (Exception ignored) {
+            }
+        }
+
+        throw new IllegalArgumentException(
+                "Deadline must be in dd-MM-yyyy HH:mm format. Actual value: " + deadlineFromExcel);
     }
 }

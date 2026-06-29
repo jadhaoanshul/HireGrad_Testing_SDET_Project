@@ -73,11 +73,13 @@ public class AdminDashboardTest extends AdminBaseTest {
 
         navigateToAdminDashboardPage();
         adminDashboardPage = new AdminDashboardPage(driver);
+        adminDashboardPage.clickProfile();
         adminDashboardPage.clickProfileLink();
         Assert.assertTrue(
                 adminDashboardPage.isProfilePageRouteDisplayed(),
                 "Profile sidebar link should navigate to Admin Profile page");
 
+        //adminDashboardPage.clickProfile();
         adminDashboardPage.clickLogoutButton();
         Assert.assertTrue(
                 adminDashboardPage.isLoginPageRouteDisplayed(),

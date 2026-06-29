@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import base.BasePage;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -177,7 +178,7 @@ public class JobPostingManagementPage extends BasePage {
     }
 
     public void selectApplicationDeadline(String deadline) {
-        clearAndType(applicationDeadlineField, deadline);
+        setDateTimeLocalValue(applicationDeadlineField, deadline);
     }
 
     public void clickPublishButton() {
@@ -345,6 +346,20 @@ public class JobPostingManagementPage extends BasePage {
         WebElement element = wait.until(ExpectedConditions.visibilityOf(locator));
         element.clear();
         element.sendKeys(value);
+    }
+
+    private void setDateTimeLocalValue(WebElement locator, String value) {
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(locator));
+        ((JavascriptExecutor) driver).executeScript(
+                "const element = arguments[0];"
+                        + "const value = arguments[1];"
+                        + "const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;"
+                        + "setter.call(element, value);"
+                        + "element.dispatchEvent(new Event('input', { bubbles: true }));"
+                        + "element.dispatchEvent(new Event('change', { bubbles: true }));"
+                        + "element.blur();",
+                element,
+                value);
     }
 
     private void clickButtonByText(List<WebElement> buttons, String buttonText) {

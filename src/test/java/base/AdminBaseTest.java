@@ -2,6 +2,7 @@ package base;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import pages.admin.AdminDashboardPage;
 import pages.LoginPage;
@@ -13,6 +14,7 @@ public class AdminBaseTest extends BaseTest{
 
     @BeforeClass(alwaysRun = true, dependsOnMethods = "setup")
     public void loginAsAdmin(){
+        waitUntilLoginPageReady();
         LoginPage loginPage = new LoginPage(driver);
         PropertyFile propertyFile = new PropertyFile();
         String username = propertyFile.getValueProperty("adminUsername");
@@ -64,5 +66,10 @@ public class AdminBaseTest extends BaseTest{
     private void waitUntilRouteContains(String route) {
         new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.urlContains(route));
+    }
+
+    private void waitUntilLoginPageReady() {
+        new WebDriverWait(driver, Duration.ofSeconds(20))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.id("login-submit-btn")));
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [HireGrad Admin Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="Admin Dashboard And Job Posting Tests(failed)">
+    <classes>
+      <class name="admin.AdminDashboardTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="TC16_verifyDashboardDisplaysContentOrLoadingOrErrorState"/>
+          <include name="openAdminDashboard"/>
+          <include name="TC15_verifyAdminDashboardSidebarNavigationLinks"/>
+          <include name="loginAsAdmin"/>
+          <include name="TC14_verifyAdminDashboardUIComponentsAreVisible"/>
+        </methods>
+      </class> <!-- admin.AdminDashboardTest -->
+      <class name="admin.AdminJobPostingTest">
+        <methods>
+          <include name="setup"/>
+          <include name="openJobPostingPage"/>
+          <include name="tearDown"/>
+          <include name="loginAsAdmin"/>
+          <include name="TC19_verifyMandatoryFieldValidationMessagesForBlankForm"/>
+          <include name="TC20_verifyCtcCgpaAndDeadlineBoundaryValidationUsingBVA"/>
+          <include name="TC17_verifyAdminJobPostingUIComponentsAreVisible"/>
+          <include name="TC18_verifyInvalidJobDetailsAreRejectedUsingECP"/>
+        </methods>
+      </class> <!-- admin.AdminJobPostingTest -->
+    </classes>
+  </test> <!-- Admin Dashboard And Job Posting Tests(failed) -->
+</suite> <!-- Failed suite [HireGrad Admin Suite] -->

@@ -18,7 +18,7 @@ public class AdminDashboardPage extends BasePage {
 
     public AdminDashboardPage(WebDriver driver) {
         super(driver);
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         //PageFactory.initElements(driver, this);
     }
 
@@ -60,10 +60,13 @@ public class AdminDashboardPage extends BasePage {
     @FindBy(id = "admin-layout-nav-/admin/reports")
     private WebElement reportsSidebarLink;
 
+    @FindBy(xpath = "//button[@id='admin-layout-account-btn']")
+    private WebElement profileSidebarAccount;
+
     @FindBy(xpath = "//button[@id='admin-layout-profile-btn']")
     private WebElement profileSidebarLink;
 
-    @FindBy(xpath = "//button[@id='admin-layout-logout-btn']")
+    @FindBy(xpath = "//button[@id='adm-profile-logout-btn']")
     private WebElement logoutButton;
 
     @FindBy(xpath = "//*[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'loading')]")
@@ -127,6 +130,11 @@ public class AdminDashboardPage extends BasePage {
     public void clickReportsLink() {
         clickElement(reportsSidebarLink);
         wait.until(ExpectedConditions.urlContains("report"));
+    }
+
+    public void clickProfile() {
+        clickElement(profileSidebarAccount);
+        wait.until(ExpectedConditions.urlContains("home"));
     }
 
     public void clickProfileLink() {

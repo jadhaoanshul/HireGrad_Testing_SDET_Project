@@ -8,9 +8,10 @@ import java.util.Date;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFCell;
 
 public class ExcelUtil implements FrameworkConstants{
 
@@ -127,32 +128,37 @@ public class ExcelUtil implements FrameworkConstants{
      * @return all the data present in the Excel in the form of String [][]
      */
     public String[][] getMultipleData(String sheetName) {
-        try {
-            FileInputStream fis=new FileInputStream(abspath);
-            workbook = WorkbookFactory.create(fis);
-        } catch (EncryptedDocumentException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        int phyRowCount = workbook.getSheet(sheetName).getPhysicalNumberOfRows();
-        int phyCellCount = workbook.getSheet(sheetName).getRow(0).getPhysicalNumberOfCells();
+        return getMultipleData(EXCEL_PATH, sheetName);
+    }
 
-        String[][] sarr = new String[phyRowCount][phyCellCount];
-        DataFormatter data= new DataFormatter();
-        for(int i=0;i<phyRowCount;i++) {
-            for(int j=0;j<phyCellCount;j++) {
-                Cell cell = workbook.getSheet(sheetName).getRow(i).getCell(j);
-                switch (cell.getCellType()) {
-                    case NUMERIC:
-                        sarr[i][j] = data.formatCellValue(cell);
-                        break;
-                    default:
-                        sarr[i][j] = cell.toString();
+    public String[][] getMultipleData(String filePath, String sheetName) {
+        File absolutePath = new File(filePath);
+        try (FileInputStream fis = new FileInputStream(absolutePath);
+             Workbook workbook = WorkbookFactory.create(fis)) {
+
+            Sheet sheet = workbook.getSheet(sheetName);
+            if (sheet == null) {
+                throw new IllegalArgumentException("Sheet not found: " + sheetName);
+            }
+
+            int physicalRowCount = sheet.getPhysicalNumberOfRows();
+            int physicalCellCount = sheet.getRow(0).getPhysicalNumberOfCells();
+
+            String[][] dataArray = new String[physicalRowCount][physicalCellCount];
+            DataFormatter dataFormatter = new DataFormatter();
+            for (int i = 0; i < physicalRowCount; i++) {
+                Row row = sheet.getRow(i);
+                for (int j = 0; j < physicalCellCount; j++) {
+                    Cell cell = row == null ? null : row.getCell(j);
+                    dataArray[i][j] = cell == null ? "" : dataFormatter.formatCellValue(cell);
                 }
             }
+            return dataArray;
+        } catch (EncryptedDocumentException | IOException exception) {
+            throw new RuntimeException(
+                    "Unable to read Excel data from file: " + filePath + ", sheet: " + sheetName,
+                    exception);
         }
-        return sarr;
     }
 
 }
