@@ -139,7 +139,7 @@ public class ExcelUtil implements FrameworkConstants{
 
         for(int i=0;i<phyRowCount;i++) {
             for(int j=0;j<phyCellCount;j++) {
-                sarr[i][j]=workbook.getSheet(sheetName).getRow(i).getCell(j).getStringCellValue();
+                sarr[i][j]=workbook.getSheet(sheetName).getRow(i).getCell(j).toString();
             }
         }
         return sarr;

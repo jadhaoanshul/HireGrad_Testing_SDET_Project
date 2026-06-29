@@ -6,7 +6,7 @@ public interface FrameworkConstants {
             "/src/test/resources/ConfigProperty/config.properties";
 
     String EXCEL_PATH = System.getProperty("user.dir") +
-            "/src/test/resources/TestData";
+            "/src/test/resources/Test Data/TestData.xlsx";
 
     String SCREENSHOT_PATH = "./Screenshots/";
 
