@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
-    WebDriver driver;
+    public WebDriver driver;
     private static final Logger log = LogManager.getLogger(BasePage.class);
 
     public BasePage(WebDriver driver){
