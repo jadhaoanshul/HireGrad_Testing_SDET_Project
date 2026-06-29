@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
+import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,15 +12,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AdminDashboardPage {
+public class AdminDashboardPage extends BasePage {
 
-    private final WebDriver driver;
+    //private final WebDriver driver;
     private final WebDriverWait wait;
 
     public AdminDashboardPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        PageFactory.initElements(driver, this);
+        //PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//div[@class='relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between']")
