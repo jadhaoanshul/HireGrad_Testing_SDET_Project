@@ -37,8 +37,7 @@ public class BaseTest {
 
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void logoutOfApplication() {
+    public void refreshApplication() {
         driver.navigate().refresh();
     }
 

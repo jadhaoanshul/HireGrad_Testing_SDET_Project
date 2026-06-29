@@ -4,22 +4,20 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
+import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class JobPostingManagementPage {
+public class JobPostingManagementPage extends BasePage {
 
-    private final WebDriver driver;
     private final WebDriverWait wait;
 
     public JobPostingManagementPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//h1[normalize-space()='Post new job']")
@@ -49,13 +47,13 @@ public class JobPostingManagementPage {
     @FindBy(xpath = "//input[@id='post-ctc-input']/following::p[1]")
     private WebElement ctcRequiredMessage;
 
-    @FindBy(xpath = "//section[@id='post-job-basic-section']//button[contains(@id,'post-employment-type')]")
+    @FindBy(xpath = "//button[normalize-space()='Full-time' or normalize-space()='Internship' or normalize-space()='Part-time']")
     private List<WebElement> employmentTypeButtons;
 
     @FindBy(xpath = "//section[@id='post-job-basic-section']//button[contains(@id,'post-employment-type')]/following::p[1]")
     private WebElement employmentTypeRequiredMessage;
 
-    @FindBy(xpath = "//button[contains(@id,'post-work-mode')]")
+    @FindBy(xpath = "//button[normalize-space()='On-site' or normalize-space()='Hybrid' or normalize-space()='Remote']")
     private List<WebElement> workModeButtons;
 
     @FindBy(xpath = "//button[contains(@id,'post-work-mode')]/following::p[1]")
@@ -95,9 +93,13 @@ public class JobPostingManagementPage {
     private WebElement cancelButton;
 
     public boolean isJobPostingPageLoaded() {
-        wait.until(ExpectedConditions.urlContains("/admin/jobs"));
-        return driver.getCurrentUrl().contains("/admin/jobs")
-                && isElementDisplayed(jobPostingHeading);
+        try {
+            wait.until(ExpectedConditions.urlContains("/admin/jobs"));
+            return driver.getCurrentUrl().contains("/admin/jobs")
+                    && isElementDisplayed(jobPostingHeading);
+        } catch (Exception exception) {
+            return false;
+        }
     }
 
     public boolean isJobPostingHeadingDisplayed() {
@@ -151,6 +153,14 @@ public class JobPostingManagementPage {
 
     public void selectWorkMode(String workMode) {
         clickButtonByText(workModeButtons, workMode);
+    }
+
+    public void selectFirstEmploymentType() {
+        clickFirstButton(employmentTypeButtons);
+    }
+
+    public void selectFirstWorkMode() {
+        clickFirstButton(workModeButtons);
     }
 
     public void enterMinimumCGPA(String cgpa) {
@@ -314,7 +324,17 @@ public class JobPostingManagementPage {
     }
 
     public boolean isRedirectedToApplicationManagementPage() {
-        return driver.getCurrentUrl().toLowerCase().contains("application");
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(3))
+                    .until(ExpectedConditions.urlContains("/admin/applications"));
+            return true;
+        } catch (Exception exception) {
+            return false;
+        }
+    }
+
+    public boolean isStillOnJobPostingPage() {
+        return driver.getCurrentUrl().contains("/admin/jobs");
     }
 
     public String getCurrentPageUrl() {
@@ -335,6 +355,13 @@ public class JobPostingManagementPage {
             }
         }
         throw new IllegalArgumentException("Button not found with text: " + buttonText);
+    }
+
+    private void clickFirstButton(List<WebElement> buttons) {
+        if (buttons == null || buttons.isEmpty()) {
+            throw new IllegalStateException("No button options are available");
+        }
+        wait.until(ExpectedConditions.elementToBeClickable(buttons.get(0))).click();
     }
 
     private void clickElement(WebElement locator) {

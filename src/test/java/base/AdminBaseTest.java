@@ -1,10 +1,13 @@
 package base;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import pages.admin.AdminDashboardPage;
 import pages.LoginPage;
 import util.PropertyFile;
+
+import java.time.Duration;
 
 public class AdminBaseTest extends BaseTest{
 
@@ -16,16 +19,50 @@ public class AdminBaseTest extends BaseTest{
         String password = propertyFile.getValueProperty("adminPassword");
 
         loginPage.loginAsPlacementCell(username, password);
+        waitUntilRouteContains("/admin/home");
         log.info("Admin logged in successfully");
     }
 
+    public void navigateToAdminDashboardPage() {
+        ensureAdminSession();
+        if (!driver.getCurrentUrl().contains("/admin/home")) {
+            new AdminDashboardPage(driver).clickDashboardLink();
+        }
+        log.info("Navigate to Admin Dashboard page successfully");
+    }
+
+    public void navigateToJobPostingPage(){
+        ensureAdminSession();
+        if (!driver.getCurrentUrl().contains("/admin/jobs")) {
+            new AdminDashboardPage(driver).clickJobPostingLink();
+        }
+        log.info("Navigate to Job Posting page successfully");
+    }
+
     public void navigateToApplicationMngmntPage(){
-        driver.findElement(By.xpath("//a[@id='admin-layout-nav-/admin/applications']//*[name()='svg']")).click();
+        ensureAdminSession();
+        if (!driver.getCurrentUrl().contains("/admin/applications")) {
+            new AdminDashboardPage(driver).clickApplicationManagementLink();
+        }
         log.info("Navigate to Application Management page successfully");
     }
 
     public void navigateToReportAnalysisPage(){
-        driver.findElement(By.xpath("//a[@id='admin-layout-nav-/admin/reports']//*[name()='svg']")).click();
+        ensureAdminSession();
+        if (!driver.getCurrentUrl().contains("/admin/reports")) {
+            new AdminDashboardPage(driver).clickReportsLink();
+        }
         log.info("Navigate to Report Analysis page successfully");
+    }
+
+    private void ensureAdminSession() {
+        if (driver.getCurrentUrl().contains("/login")) {
+            loginAsAdmin();
+        }
+    }
+
+    private void waitUntilRouteContains(String route) {
+        new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.urlContains(route));
     }
 }

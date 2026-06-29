@@ -8,7 +8,6 @@ import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -47,15 +46,18 @@ public class AdminDashboardPage extends BasePage {
     @FindBy(xpath = "//div[@id='admin-home-recent-activity-card']")
     private WebElement recentActivity;
 
-    @FindBy(xpath = "//a[@id='admin-layout-nav-/admin/jobs']//*[name()='svg']")
+    @FindBy(id = "admin-layout-nav-/admin/home")
+    private WebElement dashboardSidebarLink;
+
+    @FindBy(id = "admin-layout-nav-/admin/jobs")
     private WebElement jobPostingSidebarLink;
 
-    @FindBy(xpath = "//a[@id='admin-layout-nav-/admin/applications']//*[name()='svg']//*[name()='rect' and contains(@width,'8')]")
+    @FindBy(id = "admin-layout-nav-/admin/applications")
     private WebElement applicationManagementSidebarLink;
 
     //a[@id='admin-layout-nav-/admin/students']//*[name()='svg'] -- student signup
 
-    @FindBy(xpath = "//a[@id='admin-layout-nav-/admin/reports']//*[name()='svg']")
+    @FindBy(id = "admin-layout-nav-/admin/reports")
     private WebElement reportsSidebarLink;
 
     @FindBy(xpath = "//button[@id='admin-layout-profile-btn']")
@@ -64,11 +66,11 @@ public class AdminDashboardPage extends BasePage {
     @FindBy(xpath = "//button[@id='admin-layout-logout-btn']")
     private WebElement logoutButton;
 
-    // @FindBy(xpath = "")
-    // private WebElement loadingMessage;
+    @FindBy(xpath = "//*[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'loading')]")
+    private List<WebElement> loadingMessages;
 
-    // @FindBy(xpath = "")
-    // private WebElement errorMessage;
+    @FindBy(xpath = "//*[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'error') or contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'failed') or contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'unable')]")
+    private List<WebElement> errorMessages;
 
     public boolean isAdminDashboardPageLoaded() {
         wait.until(ExpectedConditions.urlContains("/admin/home"));
@@ -97,7 +99,19 @@ public class AdminDashboardPage extends BasePage {
 
     public boolean areAllAdminDashboardComponentsDisplayed() {
         return isAdminDashboardHeadingDisplayed()
+                && arePlacementSummaryCardsDisplayed()
                 && arePostingOverviewDetailsDisplayed();
+    }
+
+    public boolean isDashboardContentOrStatusMessageDisplayed() {
+        return areAllAdminDashboardComponentsDisplayed()
+                || isAnyElementDisplayed(loadingMessages)
+                || isAnyElementDisplayed(errorMessages);
+    }
+
+    public void clickDashboardLink() {
+        clickElement(dashboardSidebarLink);
+        wait.until(ExpectedConditions.urlContains("/admin/home"));
     }
 
     public void clickJobPostingLink() {
@@ -127,13 +141,25 @@ public class AdminDashboardPage extends BasePage {
                 ExpectedConditions.urlContains("login")));
     }
 
-    // public boolean isLoadingMessageDisplayed() {
-    //     return isElementDisplayed(loadingMessage);
-    // }
+    public boolean isJobPostingPageRouteDisplayed() {
+        return waitUntilUrlContains("/admin/jobs");
+    }
 
-    // public boolean isErrorMessageDisplayed() {
-    //     return isElementDisplayed(errorMessage);
-    // }
+    public boolean isApplicationManagementPageRouteDisplayed() {
+        return waitUntilUrlContains("/admin/applications");
+    }
+
+    public boolean isReportsPageRouteDisplayed() {
+        return waitUntilUrlContains("/admin/reports");
+    }
+
+    public boolean isProfilePageRouteDisplayed() {
+        return waitUntilUrlContains("/admin/profile") || driver.getCurrentUrl().toLowerCase().contains("profile");
+    }
+
+    public boolean isLoginPageRouteDisplayed() {
+        return waitUntilUrlContains("/login") || driver.getCurrentUrl().toLowerCase().contains("login");
+    }
 
     public String getCurrentPageUrl() {
         return driver.getCurrentUrl();
@@ -160,5 +186,26 @@ public class AdminDashboardPage extends BasePage {
             }
         }
         return true;
+    }
+
+    private boolean isAnyElementDisplayed(List<WebElement> elements) {
+        for (WebElement element : elements) {
+            try {
+                if (element.isDisplayed()) {
+                    return true;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+        return false;
+    }
+
+    private boolean waitUntilUrlContains(String route) {
+        try {
+            wait.until(ExpectedConditions.urlContains(route));
+            return true;
+        } catch (Exception exception) {
+            return false;
+        }
     }
 }

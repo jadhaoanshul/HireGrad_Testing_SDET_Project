@@ -15,6 +15,11 @@ public class ExtentReportManager implements FrameworkConstants {
 
     public static ExtentReports getInstance() {
         if (extentReports == null) {
+            File reportFile = new File(REPORT_PATH);
+            File reportDirectory = reportFile.getParentFile();
+            if (reportDirectory != null && !reportDirectory.exists()) {
+                reportDirectory.mkdirs();
+            }
 
             ExtentSparkReporter spark = new ExtentSparkReporter(REPORT_PATH);
             spark.config().setTheme(Theme.DARK);

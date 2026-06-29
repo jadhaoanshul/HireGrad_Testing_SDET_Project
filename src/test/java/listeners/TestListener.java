@@ -101,15 +101,20 @@ public class TestListener implements ITestListener, ISuiteListener {
     private WebDriver getDriverFromTest(ITestResult result) {
         try {
             Object instance = result.getInstance();
-            Field field = instance.getClass()
-                    .getSuperclass()
-                    .getDeclaredField("driver");
-            field.setAccessible(true);
-            return (WebDriver) field.get(instance);
+            Class<?> testClass = instance.getClass();
+            while (testClass != null) {
+                try {
+                    Field field = testClass.getDeclaredField("driver");
+                    field.setAccessible(true);
+                    return (WebDriver) field.get(instance);
+                } catch (NoSuchFieldException ignored) {
+                    testClass = testClass.getSuperclass();
+                }
+            }
         } catch (Exception e) {
             log.error("Could not get driver for screenshot: " + e.getMessage());
-            return null;
         }
+        return null;
     }
 
     // Call this from any test class to add step logs to ExtentReport
