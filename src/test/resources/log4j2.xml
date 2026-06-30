@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
+    <Properties>
+        <Property name="LOG_DIR">test-output/logs</Property>
+    </Properties>
 
     <Appenders>
-<!--        Console outputs during tests run  -->
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss} [%-5level] %c{1} - %msg%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%level] %c{1} - %msg%n"/>
         </Console>
-
-<!--        Saves to file  in test-output folder -->
-        <File name="FileLogger"
-              fileName="test-output/logs/automation.log"
-              append="false">       <!-- file resets each run -->
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%-5level] %c{1} - %msg%n"/>
-        </File>
-
+        <RollingFile name="FileLogger"
+                     fileName="${LOG_DIR}/automation.log"
+                     filePattern="${LOG_DIR}/automation-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%level] %c{1} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5 MB"/>
+            </Policies>
+        </RollingFile>
     </Appenders>
 
     <Loggers>
@@ -22,5 +24,4 @@
             <AppenderRef ref="FileLogger"/>
         </Root>
     </Loggers>
-
 </Configuration>

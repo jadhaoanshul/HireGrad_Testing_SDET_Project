@@ -1,44 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="HireGrad Full Functional Automation Suite" verbose="1">
+<suite name="HireGrad Admin Functional Suite" verbose="1">
     <listeners>
         <listener class-name="com.tests.listeners.TestListener"/>
     </listeners>
-
     <parameter name="browser" value="chrome"/>
-
-    <test name="TS01 Admin Login">
+    <test name="Admin Tests">
         <classes>
             <class name="com.tests.login.TS01_AdminLoginTests"/>
-        </classes>
-    </test>
-
-    <test name="TS02 Student Login">
-        <classes>
-            <class name="com.tests.login.TS02_StudentLoginTests"/>
-        </classes>
-    </test>
-
-    <test name="Admin Functional Scenarios">
-        <classes>
             <class name="com.tests.admin.TS03_AdminDashboardTests"/>
             <class name="com.tests.admin.TS04_AdminJobPostingTests"/>
             <class name="com.tests.admin.TS05_ApplicationManagementTests"/>
             <class name="com.tests.admin.TS06_PlacementReportTests"/>
             <class name="com.tests.admin.TS07_AdminProfileTests"/>
-        </classes>
-    </test>
-
-    <test name="Student Functional Scenarios">
-        <classes>
-            <class name="com.tests.student.TS08_StudentDashboardTests"/>
-            <class name="com.tests.student.TS09_StudentProfileTests"/>
-            <class name="com.tests.student.TS10_StudentJobsTests"/>
-        </classes>
-    </test>
-
-    <test name="Shared Functional Scenarios">
-        <classes>
             <class name="com.tests.shared.TS12_NotificationTests"/>
             <class name="com.tests.shared.TS13_NavigatorBotTests"/>
             <class name="com.tests.shared.TS14_ThemeTests"/>
